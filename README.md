@@ -32,6 +32,8 @@ An interesting pipeline that demonstrates a few more advanced delivery pipeline 
     + The pipeline is setup to continue even if security issues are discovered.  This is configurable on the stage.  In this case we are demonstrating the ability to run consistent scans in order to provide feedback to the development team without blocking deployment to staging environments.  
 - Containerize 
     + Builds a docker container using the Container Build Service in Bluemix.  This service takes the contents of the repository, streams it to the build service, then pushes a versioned container image to the organizations registry on Bluemix ... ready for deployment.  
+- Vulnerability Scan
+    + Scans the docker container image for known vulnerabilities in included package.  This verifies that containers built with known security issues can be blocked before they go live.
 - Deploy Stage
     + Using the container image from the Build stage, a container group is deployed with a single container to start with, and then a route is generated for the Deploy stage that will be reused across deployments. 
 
